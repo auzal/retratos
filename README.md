@@ -7,3 +7,5 @@ tests running @ https://auzal.github.io/retratos/
 ### code
 
 [test_01/](test_01/)
+
+[test_02/](test_02/)
