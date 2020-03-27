@@ -9,3 +9,5 @@ tests running @ https://auzal.github.io/retratos/
 [test_01/](test_01/)
 
 [test_02/](test_02/)
+
+[test_03/](test_03/)
