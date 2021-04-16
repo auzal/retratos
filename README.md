@@ -17,3 +17,5 @@ tests running @ https://auzal.github.io/retratos/
 [test_05_varios_rasgados/](test_05_multiple/)
 
 [test_06/](test_06/)
+
+[test_07_calidad](test_07_quality_check/)
