@@ -16,6 +16,8 @@
 
 - hay que definir la manera de cambiar de un retrato a otro
 
+- hay que definir si hay algún tipo de instrucción lo menos intrusiva posible
+
 - 
 
 
