@@ -1,4 +1,4 @@
-#NOTAS REUNION 20-4
+# NOTAS REUNION 20-4
 
 - probablemente las fotos se puedan despelar manualmente (hay que terminar de decidir)
 
