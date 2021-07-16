@@ -20,7 +20,7 @@ let timeout_reset = 6000;
 let time_at_finish = 0;
 let finished;
 
-let arrow_op = 255;
+let arrowOpacity = 255;
 let arrow_y;
 let render_arrow = false;
 
@@ -38,7 +38,7 @@ let drag_direction ='';
 
 let switching = false;
 
-let render_debug = false;
+let renderDebug = false;
 let debug_font;
 
 function preload(){
@@ -82,7 +82,7 @@ function draw() {
 	// 	ellipse(x,y,50,50);
 	// }
 
-	if(render_debug){
+	if(renderDebug){
 		renderDebug();
 	}
 }
@@ -164,7 +164,7 @@ function windowResized() {
 
 function keyPressed(){
 	if(key === 'D' || key === 'd' )
-	render_debug =! render_debug;
+	renderDebug =! renderDebug;
 }
 
 function renderDebug(){

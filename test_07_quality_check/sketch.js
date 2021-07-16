@@ -14,7 +14,7 @@ let timeout_reset = 6000;
 let time_at_finish = 0;
 let finished;
 
-let arrow_op = 255;
+let arrowOpacity = 255;
 let arrow_y;
 let render_arrow = false;
 

@@ -12,7 +12,7 @@ let timeout_reset = 6000;
 let time_at_finish = 0;
 let finished;
 
-let arrow_op = 255;
+let arrowOpacity = 255;
 let arrow_y;
 let render_arrow = false;
 
@@ -123,23 +123,23 @@ function renderArrow(){
 		let lerp_amt = curr_time/(arrow_travel_time*1.0);
 		arrow_y = lerp((height/2 - img_height/2) + img_height * .2, (height/2 - img_height/2) + img_height * .5, lerp_amt);
 		if(lerp_amt < 0.5){
-			arrow_op = map(lerp_amt, 0, 0.3, 0, 255);
+			arrowOpacity = map(lerp_amt, 0, 0.3, 0, 255);
 		}else{
-			arrow_op = map(lerp_amt, 0.7, 1, 255, 0);
+			arrowOpacity = map(lerp_amt, 0.7, 1, 255, 0);
 		}
 	}
 
 	push();
 	let len = windowHeight * 0.1;
 	imageMode(CENTER);
-	tint(255, arrow_op);
+	tint(255, arrowOpacity);
 	image(arrow, width/2, arrow_y, len, arrow.height*len/arrow.width);
 	pop();
 
 }
 
 function prepareArrow(){
-	arrow_op = 128;
+	arrowOpacity = 128;
 	render_arrow = true;
 	arrow_travel_fire = millis();
 }
