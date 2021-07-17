@@ -34,7 +34,7 @@ class PortraitTwoStripes{
 
   loadImages(name, amt){
 
-    let resFolder = this.checkResolution();
+    let resFolder = checkResolution();
 
     console.log("loading from dir ->" + resFolder);
 
@@ -70,8 +70,8 @@ class PortraitTwoStripes{
 
 
   calibrateImages(){
-    let imgWidth_max = width - (margin * 2);
-    let imgHeight_max = height - (margin * 2);
+    let imgWidth_max = parentWidth - (margin * 2);
+    let imgHeight_max = parentHeight - (margin * 2);
 
     imgWidth = imgWidth_max;
     imgHeight = this.imgs[0].height * imgWidth/this.imgs[0].width;
@@ -81,8 +81,11 @@ class PortraitTwoStripes{
       imgWidth  = this.imgs[0].width * imgHeight/this.imgs[0].height;
     }
 
-    imgX = width/2;
-    imgY = height/2;
+    sketchWidth = imgWidth + margin * 2;
+    sketchHeight = imgHeight + margin * 2
+
+    imgX = sketchWidth/2;
+    imgY = sketchHeight/2;
   }
 
   //***************************************************************
@@ -178,23 +181,6 @@ class PortraitTwoStripes{
 
   }
 
-  //***************************************************************
-
-  checkResolution(){
-    let h = windowHeight * pixelDensity();
-    print("window height -> " + h);
-    let resFolder = "";
-    if(h <= 850 ){
-      resFolder = "850/";
-    }else if( h <= 1500){
-      resFolder = "1500/";
-    }else{
-      resFolder = "1920/";
-    }
-
-    return resFolder;
-
-  }
 
   //***************************************************************
 

@@ -6,9 +6,15 @@ let imgY;
 
 let imgWidth;
 let imgHeight;
-let margin = 30;
+let margin = 0;
 
 let manager;
+
+let parentWidth;
+let parentHeight;
+
+let sketchWidth;
+let sketchHeight;
 
 //***************************************************************
 
@@ -26,12 +32,28 @@ function preload(){
 //***************************************************************
 
 function setup() {
-	createCanvas(windowWidth,windowHeight);
+
 	bgColor = color(40);
-	manager.init();
-//	noCursor();
+
+	 var canvasDiv = document.getElementById('sketchDiv');
+	 parentWidth = canvasDiv.clientWidth;
+   parentHeight = canvasDiv.clientHeight;
+
+	 	manager.init();
+
+	 var myCanvas = createCanvas(sketchWidth, sketchHeight);
+   myCanvas.parent("sketchDiv");
+
+
+
+//	createCanvas(1000,1000);
+//	var sketchCanvas = createCanvas(width,450);
+//	console.log(sketchCanvas);
+//	sketchCanvas.parent("myCanvas");
 
 //	imageMode(CENTER);
+
+
 }
 
 //***************************************************************
@@ -64,8 +86,8 @@ function mouseReleased(){
 //***************************************************************
 
 function windowResized() {
-	resizeCanvas(windowWidth, windowHeight);
-	manager.calibrateImages();
+//	resizeCanvas(windowWidth, windowHeight);
+//	manager.calibrateImages();
 //	calibrateImages();
 }
 
@@ -87,3 +109,29 @@ function keyPressed(){
 }
 
 //***************************************************************
+
+function  checkResolution(){
+    let h = windowHeight * pixelDensity();
+    print("window height -> " + h);
+    let resFolder = "";
+    if(h <= 850 ){
+      resFolder = "850/";
+    }else if( h <= 1500){
+      resFolder = "1500/";
+    }else{
+      resFolder = "1920/";
+    }
+
+    return resFolder;
+
+  }
+
+//***************************************************************
+
+	function callmymethod(id){
+		manager.findById(id);
+//		console.log(id);
+    //doing custom things with myVal
+    //here I want to prevent default
+    return false;
+}

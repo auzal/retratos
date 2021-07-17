@@ -49,9 +49,10 @@ class PortraitManager{
 
 
   calibrateImages(){
-    for(let i = 0 ; i < this.portraits.length ; i++){
-      this.portraits[i].calibrateImages();
-    }
+  //  for(let i = 0 ; i < this.portraits.length ; i++){
+    //  this.portraits[i].calibrateImages();
+//    }
+    this.portraits[0].calibrateImages();
   }
 
   //***************************************************************
@@ -145,6 +146,21 @@ class PortraitManager{
         this.renderArrow = true;
         this.arrowY = imgY - imgHeight*.4;
         this.lastMovementTime = millis();
+    }
+
+    //***************************************************************
+
+    findById(id){
+        id = id.toLowerCase();
+
+        for(let i = 0 ; i < this.portraits.length ; i++){
+          let pId = this.portraits[i].name.toLowerCase();
+          if(pId === id){
+            this.index = i;
+            this.reset();
+            break;
+          }
+        }
     }
 
 }
