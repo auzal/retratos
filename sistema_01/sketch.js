@@ -29,9 +29,9 @@ function setup() {
 	createCanvas(windowWidth,windowHeight);
 	bgColor = color(40);
 	manager.init();
-	noCursor();
+//	noCursor();
 
-	imageMode(CENTER);
+//	imageMode(CENTER);
 }
 
 //***************************************************************

@@ -8,11 +8,10 @@ class PortraitManager{
 
     this.arrowTimeout = 7000;
     this.lastMovementTime = 0;
-    this.arrow;
 
     this.arrowTravelFire = 0;
     this.arrowTravelTime = 1000;
-    this.renderDebug = true;
+    this.renderDebug = false;
     this.debugFont;
 
     this.index = 0;
@@ -61,13 +60,35 @@ class PortraitManager{
     if(millis() > 500){
       this.portraits[this.index].render(this.renderDebug);
     }
-    image(this.hand, mouseX, mouseY);
+    if(this.renderArrow){
+      push();
+      tint(255,this.arrowOpacity);
+      image(this.hand, width/2, this.arrowY);
+      pop();
+    }
+
   }
 
   //***************************************************************
 
   update(){
+    if(millis() - this.lastMovementTime > this.arrowTimeout ){
+      this.fireArrow();
+    }
 
+    if(this.renderArrow){
+      let time = millis() - this.arrowTravelFire;
+      if(time > this.arrowTravelTime){
+        this.renderArrow = false;
+        this.lastMovementTime = millis();
+      }else{
+        let lerp = time/this.arrowTravelTime;
+        lerp = sinOut(lerp);
+      //  console.log(lerp);
+        this.arrowY = map(lerp, 0, 1.0, imgY - imgHeight*.4, imgY);
+        this.arrowOpacity = ((1.0 - lerp)*2) * 255;
+      }
+    }
   }
 
   //***************************************************************
@@ -80,6 +101,7 @@ class PortraitManager{
   //***************************************************************
 
   dragged(){
+    this.lastMovementTime = millis();
     this.portraits[this.index].dragged();
   }
 
@@ -115,5 +137,14 @@ class PortraitManager{
     }
     this.reset();
   }
+
+    //***************************************************************
+
+    fireArrow(){
+        this.arrowTravelFire = millis();
+        this.renderArrow = true;
+        this.arrowY = imgY - imgHeight*.4;
+        this.lastMovementTime = millis();
+    }
 
 }
