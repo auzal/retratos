@@ -122,6 +122,8 @@ function  checkResolution(){
       resFolder = "1920/";
     }
 
+		resFolder = "850/";
+
     return resFolder;
 
   }
