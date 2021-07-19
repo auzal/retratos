@@ -141,6 +141,7 @@ function  checkResolution(){
 		if(isMobileDevice()){
 			resFolder = "850/";
 			forceMobile = true;
+			console.log("is mobile!");
 		}
 
     return resFolder;
