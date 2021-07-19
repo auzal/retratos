@@ -21,3 +21,5 @@ tests running @ https://auzal.github.io/retratos/
 [test_07_calidad](test_07_quality_check/)
 
 [sistema_01](sistema_01)
+
+[sistema_02](sistema_02)
