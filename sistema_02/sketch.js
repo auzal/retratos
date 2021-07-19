@@ -20,6 +20,7 @@ let totalImgNum = 0;
 let loadImgNum = 0;
 let loaded = false;
 let initialized = false;
+let forceMobile = false;
 
 //***************************************************************
 
@@ -47,7 +48,6 @@ function setup() {
 
 	var myCanvas = createCanvas(sketchWidth, sketchHeight);
   myCanvas.parent("sketchDiv");
-
 	manager.addSimplePortrait('Edgar',26);
 	manager.addTriplePortrait('Gustavo',16,16,17);
 	manager.addSimplePortrait('Korangi',28);
@@ -61,6 +61,9 @@ function setup() {
 
 function draw() {
 	background(bgColor);
+	if(forceMobile){
+		background(255,0,0);
+	}
 	if(loadImgNum === totalImgNum && !loaded){
 		loaded = true;
 		manager.init();
@@ -135,6 +138,11 @@ function  checkResolution(){
       resFolder = "1920/";
     }
 
+		if(isMobileDevice()){
+			resFolder = "850/";
+			forceMobile = true;
+		}
+
     return resFolder;
 
   }
@@ -203,3 +211,9 @@ function renderLoading(){
 	line(0,0,(loadImgNum/totalImgNum)*rectW,0);
 	pop();
 }
+
+//***************************************************************
+
+function isMobileDevice() {
+    return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+};
