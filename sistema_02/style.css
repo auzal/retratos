@@ -69,5 +69,6 @@
   padding: 0;
   margin: auto;
   display: block;
+  touch-action: none
 
 }

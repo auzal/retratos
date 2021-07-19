@@ -61,9 +61,9 @@ function setup() {
 
 function draw() {
 	background(bgColor);
-	if(forceMobile){
-		background(255,0,0);
-	}
+//	if(forceMobile){
+//		background(255,0,0);
+//	}
 	if(loadImgNum === totalImgNum && !loaded){
 		loaded = true;
 		manager.init();
