@@ -42,12 +42,19 @@ function setup() {
 	parentWidth = canvasDiv.clientWidth;
   parentHeight = canvasDiv.clientHeight;
 
+	console.log("parent " + parentHeight);
+
 	calibrateImages();
 
 	//manager.init();
 
 	var myCanvas = createCanvas(sketchWidth, sketchHeight);
+
+	console.log("calculated " + sketchHeight);
   myCanvas.parent("sketchDiv");
+
+	console.log("actual " + height);
+
 	manager.addSimplePortrait('Edgar',26);
 	manager.addTriplePortrait('Gustavo',16,16,17);
 	manager.addSimplePortrait('Korangi',28);
@@ -78,6 +85,8 @@ function draw() {
 		manager.render();
 		manager.update();
 	}
+
+
 }
 
 //***************************************************************
@@ -218,3 +227,38 @@ function renderLoading(){
 function isMobileDevice() {
     return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
 };
+
+//***************************************************************
+
+function  renderLimits(){
+
+	push();
+		push();
+			translate(0,0);
+			drawMarker();
+		pop();
+		push();
+			translate(width,0);
+			drawMarker();
+		pop();
+		push();
+			translate(0, height);
+			drawMarker();
+		pop();
+		push();
+			translate(width, height);
+			drawMarker();
+		pop();
+
+	pop();
+
+}
+
+function drawMarker(){
+		stroke(255,128,0);
+		noFill();
+		strokeWeight(3);
+		ellipse(0,0,40,40);
+		line(-25,0,25,0);
+		line(0,25,0,-25);
+}

@@ -179,6 +179,8 @@ class PortraitTwoStripes{
     y += 20;
     pop();
 
+    renderLimits();
+
   }
 
 
