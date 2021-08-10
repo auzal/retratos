@@ -36,7 +36,7 @@ class PortraitTwoStripes{
 
     let resFolder = checkResolution();
 
-    console.log("loading from dir ->" + resFolder);
+  //  console.log("loading from dir ->" + resFolder);
 
     for (let i=0; i < amt; i++) {
       let filename = 'assets/retratos/' + name + '/'+ resFolder + nf(i+1,2) + '.jpg';

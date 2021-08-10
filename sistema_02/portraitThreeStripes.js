@@ -47,7 +47,7 @@ class PortraitThreeStripes{
 
     let resFolder = checkResolution();
 
-    console.log("loading from dir ->" + resFolder);
+  //  console.log("loading from dir ->" + resFolder);
 
     for (let i=0; i < c; i++) {
       let filename = 'assets/retratos/' + name + '/center/'+ resFolder + nf(i+1,2) + '.jpg';

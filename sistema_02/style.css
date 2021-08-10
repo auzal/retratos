@@ -1,9 +1,15 @@
   body {
-    padding: 0;
+    padding: 20px;
     margin: 0;
     background: #ffffff;
      height:100%;
      overflow: hidden;
+
+     font-family: 'Roboto Mono', monospace;
+     font-size: 10pt;
+     color: #222;
+     font-weight: 200;
+     text-align: center;
 
       -moz-user-select: none;
       -webkit-user-select: none;
@@ -32,32 +38,29 @@
 //  overflow:hidden;
   //background-color: #F00;
   margin: 50px;
-  font-family: 'Roboto Mono', monospace;
-  font-size: 10pt;
-  color: #222;
-  font-weight: 200;
+
 
 }
 
-#sketchDiv a{
+body a{
   text-decoration: none;
   color: #222;
   font-weight: 200;
 }
 
-#sketchDiv a:active{
+body a:active{
   text-decoration: none;
   color: #222;
   font-weight: 400;
 }
 
-#sketchDiv a:hover{
+body a:hover{
   text-decoration: none;
   color: #222;
   font-weight: 400;
 }
 
-#sketchDiv a:visited{
+body a:visited{
   text-decoration: none;
   color: #222;
   font-weight: 200;
