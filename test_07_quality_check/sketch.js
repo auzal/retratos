@@ -44,7 +44,7 @@ function preload(){
 	let start = 1;
 	let end = 12;
 	for (let i=start; i <= end; i++) {
-		let filename = 'assets/frame/Gustavo/' + resFolder  + nf(i,2,0) + '.jpg';
+		let filename = '../assets/frame/Gustavo/' + resFolder  + nf(i,2,0) + '.jpg';
 //		console.log(filename);
 		imgsA[i-start] = loadImage(filename);
 	}

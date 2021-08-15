@@ -20,7 +20,7 @@ let sketchHeight;
 
 function preload(){
 
-	debugFont = loadFont('assets/mmr.ttf');
+	debugFont = loadFont('../assets/mmr.ttf');
 	manager = new PortraitManager();
 	manager.addSimplePortrait('Edgar',26);
 	manager.addTriplePortrait('Gustavo',16,16,17);

@@ -58,19 +58,34 @@ function setup() {
 	// para retratos de dos pelados -> id, cantidad
 	// para retratos de tres pelados -> id, izquierda, centro, derecha
 
-	manager.addTriplePortrait('Amada',15, 20, 15);
-	manager.addTriplePortrait('DianaCristina',16, 18, 16);
-	manager.addSimplePortrait('Edgar',26);
-	manager.addTriplePortrait('Emilio',15, 18, 15);
-	manager.addSimplePortrait('Gledys',32);
-	manager.addTriplePortrait('GustavoOscar',16,16,17);
-	manager.addSimplePortrait('Kelvin',28);
-	manager.addSimplePortrait('Korangi',28);
-	manager.addTriplePortrait('Mati',16, 21, 15);
-	manager.addTriplePortrait('Mayu',14, 17, 17);
-	manager.addSimplePortrait('Mika',30);
-	manager.addSimplePortrait('Odalys',29);
-	manager.addTriplePortrait('Zumak',16,16,15);
+
+	if(window.PORTRAIT_DEFINITION.type === 'simple') {
+    manager.addSimplePortrait(
+      window.PORTRAIT_DEFINITION.name,
+      window.PORTRAIT_DEFINITION.nmbPhotosPerStrip[0]
+    );
+  } else if(window.PORTRAIT_DEFINITION.type === 'triple') {
+    manager.addTriplePortrait(
+      window.PORTRAIT_DEFINITION.name,
+      window.PORTRAIT_DEFINITION.nmbPhotosPerStrip[0],
+      window.PORTRAIT_DEFINITION.nmbPhotosPerStrip[1],
+      window.PORTRAIT_DEFINITION.nmbPhotosPerStrip[2]
+    )
+  }
+
+	// manager.addTriplePortrait('Amada',15, 20, 15);
+	// manager.addTriplePortrait('DianaCristina',16, 18, 16);
+	// manager.addSimplePortrait('Edgar',26);
+	// manager.addTriplePortrait('Emilio',15, 18, 15);
+	// manager.addSimplePortrait('Gledys',32);
+	// manager.addTriplePortrait('GustavoOscar',16,16,17);
+	// manager.addSimplePortrait('Kelvin',28);
+	// manager.addSimplePortrait('Korangi',28);
+	// manager.addTriplePortrait('Mati',16, 21, 15);
+	// manager.addTriplePortrait('Mayu',14, 17, 17);
+	// manager.addSimplePortrait('Mika',30);
+	// manager.addSimplePortrait('Odalys',29);
+	// manager.addTriplePortrait('Zumak',16,16,15);
 
 }
 

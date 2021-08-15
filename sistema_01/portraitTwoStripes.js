@@ -39,7 +39,7 @@ class PortraitTwoStripes{
     console.log("loading from dir ->" + resFolder);
 
     for (let i=0; i < amt; i++) {
-      let filename = 'assets/retratos/' + name + '/'+ resFolder + nf(i+1,2) + '.jpg';
+      let filename = '../assets/retratos/' + name + '/'+ resFolder + nf(i+1,2) + '.jpg';
       this.imgs[i] = loadImage(filename);
     }
 

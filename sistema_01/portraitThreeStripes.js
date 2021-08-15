@@ -50,17 +50,17 @@ class PortraitThreeStripes{
     console.log("loading from dir ->" + resFolder);
 
     for (let i=0; i < c; i++) {
-      let filename = 'assets/retratos/' + name + '/center/'+ resFolder + nf(i+1,2) + '.jpg';
+      let filename = '../assets/retratos/' + name + '/center/'+ resFolder + nf(i+1,2) + '.jpg';
       this.imgsCenter[i] = loadImage(filename);
     }
 
     for (let i=0; i < l; i++) {
-      let filename = 'assets/retratos/' + name + '/left/'+ resFolder + nf(i+1,2) + '.jpg';
+      let filename = '../assets/retratos/' + name + '/left/'+ resFolder + nf(i+1,2) + '.jpg';
       this.imgsLeft[i] = loadImage(filename);
     }
 
     for (let i=0; i < r; i++) {
-      let filename = 'assets/retratos/' + name + '/right/'+ resFolder + nf(i+1,2) + '.jpg';
+      let filename = '../assets/retratos/' + name + '/right/'+ resFolder + nf(i+1,2) + '.jpg';
       this.imgsRight[i] = loadImage(filename);
     }
     this.cursorPosition.push(createVector(0.1,0));
