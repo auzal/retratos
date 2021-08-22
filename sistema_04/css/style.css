@@ -32,8 +32,8 @@ html {
 
 #sketchDiv {
   height: 80%;
-  //  overflow:hidden;
-  //background-color: #F00;
+  /* overflow:hidden; */
+  /*background-color: #f00;*/
   margin: 50px;
 }
 
@@ -65,6 +65,10 @@ body a:visited {
   padding: 0;
   margin: auto;
   display: block;
+}
+
+#sketchDiv img {
+  height: 100%;
 }
 
 canvas,
