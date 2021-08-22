@@ -4,7 +4,7 @@ class PortraitTwoStripes{
 
     this.imgs = [];
     this.index = 0;
-      this.cursorPosition = [];
+    this.cursorPosition = [];
 
     this.name = name;
 
@@ -36,11 +36,21 @@ class PortraitTwoStripes{
 
     let resFolder = checkResolution();
 
-  //  console.log("loading from dir ->" + resFolder);
+    //  console.log("loading from dir ->" + resFolder);
 
     for (let i=0; i < amt; i++) {
       let filename = '../assets/retratos/' + name + '/'+ resFolder + nf(i+1,2) + '.jpg';
-      this.imgs[i] = loadImage(filename, successLoad, failLoad);
+  //    this.imgs[i] = loadImage(filename, successLoad, failLoad);
+
+      this.imgs[i] = new Image();
+      this.imgs[i].onload = function(){
+  	     loadImgNum ++;
+      };
+  //  	loadImgNum ++;
+
+      this.imgs[i].src = filename;
+
+
     }
 
     this.cursorPosition.push(createVector(0.5,0));
@@ -53,7 +63,7 @@ class PortraitTwoStripes{
   render(renderDebug){
     if(millis() > 500){
       imageMode(CENTER);
-      image(this.imgs[this.index],imgX,imgY, imgWidth, imgHeight);
+    //  image(this.imgs[this.index],imgX,imgY, imgWidth, imgHeight);
 
     }
 
@@ -130,17 +140,17 @@ class PortraitTwoStripes{
         //-------------------- UP ----------
       }  else  if(this.dragDirection === 'UP'){
 
-      if(this.centerActive){
-            this.movementAcum -= pmouseY - mouseY;
-            this.movementAcum = constrain(this.movementAcum, 0, imgHeight*2);
-            this.index = int(map(this.movementAcum,0,imgHeight*2,0,this.imgs.length-1));
-            this.index = constrain(this.index, 0, this.imgs.length-1);
+        if(this.centerActive){
+          this.movementAcum -= pmouseY - mouseY;
+          this.movementAcum = constrain(this.movementAcum, 0, imgHeight*2);
+          this.index = int(map(this.movementAcum,0,imgHeight*2,0,this.imgs.length-1));
+          this.index = constrain(this.index, 0, this.imgs.length-1);
 
-          }
-        }  // --------------
-      }
+        }
+      }  // --------------
+    }
 
-      //---- WAITING FOR CLICK
+    //---- WAITING FOR CLICK
 
   }
 
