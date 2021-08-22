@@ -1,51 +1,45 @@
 <!DOCTYPE html>
 <html lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sistema_03</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="libraries/p5.min.js"></script>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>sistema_03</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-  <script src="libraries/p5.min.js"></script>
+    <!--   <script src="addons/p5.sound.js"></script> -->
+    <script>
+      var PORTRAIT_DEFINITION = {
+        name: "Amada",
+        type: "triple",
+        nmbPhotosPerStrip: [15, 20, 15],
+      };
+    </script>
+    <script src="js/sketch.js"></script>
+    <script src="js/portraitTwoStripes.js"></script>
+    <script src="js/portraitThreeStripes.js"></script>
+    <script src="js/portraitManager.js"></script>
+    <script src="js/easing.js"></script>
+  </head>
 
-  <!--   <script src="addons/p5.sound.js"></script> -->
-  <script>
-  var PORTRAIT_DEFINITION = {
-    name: 'Amada',
-    type: 'triple',
-    nmbPhotosPerStrip: [15, 20, 15]
-  }
-  </script>
-  <script src="js/sketch.js"></script>
-  <script src="js/portraitTwoStripes.js"></script>
-  <script src="js/portraitThreeStripes.js"></script>
-  <script src="js/portraitManager.js"></script>
-  <script src="js/easing.js"></script>
-</head>
+  <body>
+    <br />
+    <a href="index.html">Amada</a> -
+    <a href="dianacristina.html">Diana y Cristina</a> -
+    <a href="edgar.html">Edgar</a> - <a href="emilio.html">Emilio</a> -
+    <a href="gledys.html">Gledys</a> -
+    <a href="gustavooscar.html">Gustavo y Oscar</a> -
+    <a href="kelvin.html">Kelvin</a> - <a href="korangi.html">Korangi</a> -
+    <a href="mati.html">Mati</a> - <a href="mayu.html">Mayu</a> -
+    <a href="mika.html">Mika</a> - <a href="odalys.html">Odalys</a> -
+    <a href="zumak.html">Zumak</a>
 
-<body>
-  <br>
-  <a href="index.html">Amada</a> -
-  <a href="dianacristina.html">Diana y Cristina</a> -
-  <a href="edgar.html">Edgar</a> -
-  <a href="emilio.html">Emilio</a> -
-  <a href="gledys.html">Gledys</a> -
-  <a href="gustavooscar.html">Gustavo y Oscar</a> -
-  <a href="kelvin.html">Kelvin</a> -
-  <a href="korangi.html">Korangi</a> -
-  <a href="mati.html">Mati</a> -
-  <a href="mayu.html">Mayu</a> -
-  <a href="mika.html">Mika</a> -
-  <a href="odalys.html">Odalys</a> -
-  <a href="zumak.html">Zumak</a>
-
-  <div id="sketchDiv">
-
-
-  </div>
-</body>
-
+    <div id="sketchDiv"></div>
+  </body>
 </html>
