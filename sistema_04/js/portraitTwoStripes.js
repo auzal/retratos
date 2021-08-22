@@ -42,8 +42,6 @@ class PortraitTwoStripes {
         "../assets/retratos/" + name + "/" + resFolder + nf(i + 1, 2) + ".jpg";
       //    this.imgs[i] = loadImage(filename, successLoad, failLoad);
 
-      console.log("filename", filename);
-
       let currImg = new Image();
       currImg.onload = function () {
         loadImgNum++;
@@ -65,6 +63,7 @@ class PortraitTwoStripes {
 
     if (this.index != this.currImgIndex) {
       document.querySelector("#sketchImg").src = this.imgs[this.index];
+
       this.currImgIndex = this.index;
     }
 

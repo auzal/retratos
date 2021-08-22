@@ -41,6 +41,9 @@ function setup() {
 
   calibrateImages();
 
+  document.querySelector("canvas").style.position = "relative";
+  document.querySelector("canvas").style.top = "-" + sketchHeight + "px";
+
   //manager.init();
 
   var myCanvas = createCanvas(sketchWidth, sketchHeight);
@@ -87,7 +90,7 @@ function setup() {
 //***************************************************************
 
 function draw() {
-  // background(0, 0, 0, 0);
+  // background(0);
   clear();
 
   //  if(forceMobile){
@@ -222,6 +225,7 @@ function failLoad() {}
 //***************************************************************
 
 function renderLoading() {
+  console.log("renderLoading");
   push();
   textAlign(CENTER, CENTER);
   textFont(debugFont);
