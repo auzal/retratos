@@ -59,11 +59,13 @@ function setup() {
 	// para retratos de tres pelados -> id, izquierda, centro, derecha
 
 	manager.addTriplePortrait('Amada',15, 20, 15);
+	manager.addSimplePortrait('AndyPaty',30);
 	manager.addTriplePortrait('DianaCristina',16, 18, 16);
 	manager.addSimplePortrait('Edgar',26);
 	manager.addTriplePortrait('Emilio',15, 18, 15);
 	manager.addSimplePortrait('Gledys',32);
 	manager.addTriplePortrait('GustavoOscar',16,16,17);
+	manager.addTriplePortrait('JoseSantiago',15,20,15);
 	manager.addSimplePortrait('Kelvin',28);
 	manager.addSimplePortrait('Korangi',28);
 	manager.addTriplePortrait('Mati',16, 21, 15);
