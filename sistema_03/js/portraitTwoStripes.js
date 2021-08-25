@@ -1,10 +1,8 @@
-class PortraitTwoStripes{
-
-  constructor(name, amt){
-
+class PortraitTwoStripes {
+  constructor(name, amt) {
     this.imgs = [];
     this.index = 0;
-      this.cursorPosition = [];
+    this.cursorPosition = [];
 
     this.name = name;
 
@@ -18,7 +16,7 @@ class PortraitTwoStripes{
     this.timeAtFinish = 0;
     this.finished;
 
-    this.dragDirection = '';
+    this.dragDirection = "";
 
     this.returning = false;
 
@@ -27,40 +25,41 @@ class PortraitTwoStripes{
 
     this.loadImages(name, amt);
     //  this.calibrateImages();
-
   }
 
   //***************************************************************
 
-  loadImages(name, amt){
-
+  loadImages(name, amt) {
     let resFolder = checkResolution();
 
-  //  console.log("loading from dir ->" + resFolder);
+    //  console.log("loading from dir ->" + resFolder);
 
-    for (let i=0; i < amt; i++) {
-      let filename = '../assets/retratos/' + name + '/'+ resFolder + nf(i+1,2) + '.jpg';
-      this.imgs[i] = loadImage(filename, successLoad, failLoad);
+    for (let i = 0; i < amt; i++) {
+      let filename =
+        "../assets/retratos/" + name + "/" + resFolder + nf(i + 1, 2) + ".jpg";
+      // this.imgs[i] = loadImage(filename, successLoad, failLoad);
+
+      this.imgs[i] = createImg(filename, "", "", function () {
+        loadImgNum++;
+      });
+      this.imgs[i].class("dontShow");
     }
 
-    this.cursorPosition.push(createVector(0.5,0));
-
+    this.cursorPosition.push(createVector(0.5, 0));
   }
 
   //***************************************************************
 
-
-  render(renderDebug){
-    if(millis() > 500){
+  render(renderDebug) {
+    if (millis() > 500) {
       imageMode(CENTER);
-      image(this.imgs[this.index],imgX,imgY, imgWidth, imgHeight);
-
+      image(this.imgs[this.index], imgX, imgY, imgWidth, imgHeight);
     }
 
-    //	handleReturn();
+    //  handleReturn();
 
-    if(renderDebug){
-      fill(88,175,209);
+    if (renderDebug) {
+      fill(88, 175, 209);
       noStroke();
       this.renderDebug();
     }
@@ -68,85 +67,82 @@ class PortraitTwoStripes{
 
   //***************************************************************
 
-
-  calibrateImages(){
-    let imgWidth_max = parentWidth - (margin * 2);
-    let imgHeight_max = parentHeight - (margin * 2);
+  calibrateImages() {
+    let imgWidth_max = parentWidth - margin * 2;
+    let imgHeight_max = parentHeight - margin * 2;
 
     imgWidth = imgWidth_max;
-    imgHeight = this.imgs[0].height * imgWidth/this.imgs[0].width;
+    imgHeight = (this.imgs[0].height * imgWidth) / this.imgs[0].width;
 
     if (imgHeight > imgHeight_max) {
       imgHeight = imgHeight_max;
-      imgWidth  = this.imgs[0].width * imgHeight/this.imgs[0].height;
+      imgWidth = (this.imgs[0].width * imgHeight) / this.imgs[0].height;
     }
 
     sketchWidth = imgWidth + margin * 2;
-    sketchHeight = imgHeight + margin * 2
+    sketchHeight = imgHeight + margin * 2;
 
-    imgX = sketchWidth/2;
-    imgY = sketchHeight/2;
+    imgX = sketchWidth / 2;
+    imgY = sketchHeight / 2;
   }
 
   //***************************************************************
 
-  pressed(){
+  pressed() {
     this.waitingForClick = false;
     this.returning = false;
 
-    if(mouseX < width/2 + imgWidth/2 && mouseX > width/2  - imgWidth/2){
+    if (
+      mouseX < width / 2 + imgWidth / 2 &&
+      mouseX > width / 2 - imgWidth / 2
+    ) {
       this.centerActive = true;
     }
-
-
   }
 
   //***************************************************************
 
-
-  dragged(){
-    if(!this.waitingForClick){
-
+  dragged() {
+    if (!this.waitingForClick) {
       //----- DIRECTION DETECT ------------
-      this.dragDirection = '';
-      if(pmouseY > mouseY){
-        this.dragDirection = 'UP';
-      }else if(pmouseY < mouseY){
-        this.dragDirection = 'DOWN';
+      this.dragDirection = "";
+      if (pmouseY > mouseY) {
+        this.dragDirection = "UP";
+      } else if (pmouseY < mouseY) {
+        this.dragDirection = "DOWN";
       }
       //------------------------------------
 
-
       //----- DOWN ------------
 
-      if(this.dragDirection === 'DOWN'){
-        if(this.centerActive){
+      if (this.dragDirection === "DOWN") {
+        if (this.centerActive) {
           this.movementAcum += mouseY - pmouseY;
-          this.movementAcum = constrain(this.movementAcum, 0, imgHeight*2);
-          this.index = int(map(this.movementAcum,0,imgHeight*2,0,this.imgs.length-1));
-          this.index = constrain(this.index, 0, this.imgs.length-1);
-
+          this.movementAcum = constrain(this.movementAcum, 0, imgHeight * 2);
+          this.index = int(
+            map(this.movementAcum, 0, imgHeight * 2, 0, this.imgs.length - 1)
+          );
+          this.index = constrain(this.index, 0, this.imgs.length - 1);
         }
         //-------------------- UP ----------
-      }  else  if(this.dragDirection === 'UP'){
+      } else if (this.dragDirection === "UP") {
+        if (this.centerActive) {
+          this.movementAcum -= pmouseY - mouseY;
+          this.movementAcum = constrain(this.movementAcum, 0, imgHeight * 2);
+          this.index = int(
+            map(this.movementAcum, 0, imgHeight * 2, 0, this.imgs.length - 1)
+          );
+          this.index = constrain(this.index, 0, this.imgs.length - 1);
+        }
+      } // --------------
+    }
 
-      if(this.centerActive){
-            this.movementAcum -= pmouseY - mouseY;
-            this.movementAcum = constrain(this.movementAcum, 0, imgHeight*2);
-            this.index = int(map(this.movementAcum,0,imgHeight*2,0,this.imgs.length-1));
-            this.index = constrain(this.index, 0, this.imgs.length-1);
-
-          }
-        }  // --------------
-      }
-
-      //---- WAITING FOR CLICK
-
+    //---- WAITING FOR CLICK
   }
 
   //***************************************************************
 
-  released(){
+  released() {
     this.waitingForClick = true;
     this.centerActive = false;
     this.lastMovementTime = millis();
@@ -155,12 +151,11 @@ class PortraitTwoStripes{
 
   //***************************************************************
 
-  renderDebug(){
-
-    for(let i = 0 ; i < this.cursorPosition.length ; i++){
-      let x = (imgX - imgWidth/2) + imgWidth*this.cursorPosition[i].x;
-      let y = (imgY - imgHeight/2) + imgHeight*this.cursorPosition[i].y;
-      ellipse(x,y,50,50);
+  renderDebug() {
+    for (let i = 0; i < this.cursorPosition.length; i++) {
+      let x = imgX - imgWidth / 2 + imgWidth * this.cursorPosition[i].x;
+      let y = imgY - imgHeight / 2 + imgHeight * this.cursorPosition[i].y;
+      ellipse(x, y, 50, 50);
     }
     push();
     textAlign(LEFT, TOP);
@@ -180,18 +175,15 @@ class PortraitTwoStripes{
     pop();
 
     renderLimits();
-
   }
-
 
   //***************************************************************
 
-  reset(){
+  reset() {
     this.index = 0;
     this.movementAcum = 0;
     this.centerActive = false;
     this.waitingForClick = true;
     this.waitingForDrag = true;
   }
-
 }
